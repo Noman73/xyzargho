@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\DonorController;
 use App\Http\Controllers\Admin\SubmissionController;
@@ -29,6 +30,7 @@ use App\Http\Controllers\Admin\SubmissionListController;
 
 
 Route::get('/', [HomeController::class,'loginRoute']);
+Route::get('/test', [TestController::class,'test']);
 Auth::routes();
 Route::group(['middleware'=>'isBaned'],function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');

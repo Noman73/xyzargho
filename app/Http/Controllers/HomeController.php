@@ -45,7 +45,7 @@ class HomeController extends Controller
         $to= gmdate("d-m-Y 23:59:59", $toDate);
         $rittikies=0;
         if(Auth::user()->hasRole('collector')){
-            $data=Collection::with('totalrittik')->where('author_id',auth()->user()->id)->whereBetween('created_at', [$from, $to])->get();
+            $data=Collection::with('totalrittik')->where('author_id',auth()->user()->id)->where('datetime','>=',$fromDate )->where('datetime','<=',$toDate )->get();
             $sostoyoni=number_format($data->sum('sostoyoni'),2,'.','');
             $istovriti=number_format($data->sum('istovriti'),2,'.','');
             $dokkhina=number_format($data->sum('dokkhina'),2,'.','');
@@ -58,13 +58,14 @@ class HomeController extends Controller
             $ananda_bazar=number_format($data->sum('ananda_bazar'),2,'.','');
             $vatri_vojjo=number_format($data->sum('vatri_vojjo'),2,'.','');
             $various=number_format($data->sum('various'),2,'.','');
-            $total_paid=Submission::whereBetween('created_at', [$from, $to])->sum('ammount');
+            $total_paid=Submission::where('datetime','>=',$fromDate )->where('datetime','<=',$toDate )->sum('ammount');
             foreach($data as $rittiki){
                 $rittikies+=$rittiki->totalrittik->sum('ammount');
             }
             $dataArray=['sostoyoni'=>$sostoyoni,'istovriti'=>$istovriti,'dokkhina'=>$dokkhina,'songothoni'=>$songothoni,'pronami'=>$pronami,'advertise'=>$advertise,'mandir_construction'=>$mandir_construction,'kristi_bandhob'=>$kristi_bandhob,'sri_thakur_vog'=>$sri_thakur_vog,'ananda_bazar'=>$ananda_bazar,'various'=>$various,'rittiki'=>$rittikies,'total_paid'=>$total_paid];
         }elseif(Auth::user()->hasRole('admin')){
-            $data=Collection::with('totalrittik')->whereBetween('date', [$from, $to])->get();
+            // $data=Collection::with('totalrittik')->whereBetween('created_at', [$from, $to])->get();
+            $data=Collection::with('totalrittik')->where('datetime','>=',$fromDate )->where('datetime','<=',$toDate )->get();
             $sostoyoni=number_format($data->sum('sostoyoni'),2,'.','');
             $istovriti=number_format($data->sum('istovriti'),2,'.','');
             $dokkhina=number_format($data->sum('dokkhina'),2,'.','');

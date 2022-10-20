@@ -70,6 +70,7 @@ class SubmissionController extends Controller
         ]);
         if($validator->passes()){
             $donor=new Submission;
+            $donor->datetime=strtotime(date('d-m-Y'));
             $donor->collector_id=$request->collector;
             $donor->ammount=$request->ammount;
             $donor->comment=$request->comment;

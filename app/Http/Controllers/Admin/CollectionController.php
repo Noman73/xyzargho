@@ -31,6 +31,7 @@ class CollectionController extends Controller
         // }else{
         //     return Auth::user()->assignRole('admin');;
         // }
+    //    return $get=Collection::with('donor','totalrittik')->get();
         if (request()->ajax()){
             if(Auth::user()->hasRole('collector')){
                 $get=Collection::with('donor','totalrittik')->where('author_id',auth()->user()->id)->get();
@@ -107,6 +108,7 @@ class CollectionController extends Controller
             $collection=new Collection;
             $collection->donor_id=$request->donor;
             $collection->date=$request->date;
+            $collection->datetime=strtotime($request->date);
             $collection->sostoyoni=$request->sostoyoni;
             $collection->istovriti=$request->istovriti;
             $collection->dokkhina=$request->dokkhina;
