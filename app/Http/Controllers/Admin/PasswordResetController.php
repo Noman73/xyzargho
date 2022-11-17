@@ -33,14 +33,14 @@ class PasswordResetController extends Controller
         if($exist>0){
             $bangla=new NumberToBangla;
             $code= Otp::generate('password:'.$request->mobile);
-            $api_key="C20081826072b4bc932d35.83708572";
+            $api_key="C2001593632a9d8ed9db24.24710771";
             $sender_id="8809601000185";
             $contacts=$request->mobile;
             $type="application/json";
-            $msg="আপনার অর্ঘ্য প্রস্ব্যস্তি পাসওয়ার্ড রিসেট কোড ".$bangla->bnNum($code);
+            $msg="আপনার অর্ঘ্য প্রস্ব্যস্তি পাসওয়ার্ড রিসেট কোড ".$bangla->bnNum($code)."।";
             $fields='api_key='.$api_key.'&type='.$type.'&contacts='.$contacts.'&senderid='.$sender_id.'&msg='.$msg;
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,"https://esms.mimsms.com/smsapi");
+            curl_setopt($ch, CURLOPT_URL,"https://isms.mimsms.com/smsapi");
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS,$fields);
             // In real life you should use something like:
