@@ -73,7 +73,7 @@
               <div class="small-box bg-warning">
                 <div class="inner">
                   <h3 id="dokkhina">{{$bangla->bnNum(number_format($data->sum('dokkhina'),2,'.',''))}}</h3>
-                  <p><strong>দক্ষিনা</strong></p>
+                  <p><strong>দক্ষিণা</strong></p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-money-bill-wave"></i>
@@ -100,7 +100,7 @@
               <div class="small-box bg-purple">
                 <div class="inner">
                   <h3 id="pronami">{{$bangla->bnNum(number_format($data->sum('pronami'),2,'.',''))}}</h3>
-                  <p><strong> প্রনামী</strong></p>
+                  <p><strong> প্রণামী</strong></p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-money-bill-wave"></i>
@@ -113,7 +113,7 @@
               <div class="small-box bg-dark">
                 <div class="inner">
                   <h3 id="advertise">{{$bangla->bnNum(number_format($data->sum('advertise'),2,'.',''))}}</h3>
-                  <p><strong>প্রচার ও প্রকাশন</strong></p>
+                  <p><strong>প্রচার ও প্রকাশনা</strong></p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-money-bill-wave"></i>
@@ -126,7 +126,7 @@
               <div class="small-box bg-secondary">
                 <div class="inner">
                   <h3 id="mandir_construction">{{$bangla->bnNum(number_format($data->sum('mandir_construction'),2,'.',''))}}</h3>
-                  <p><strong>মন্দির তৈরী</strong></p>
+                  <p><strong>শ্রীমন্দির নির্মান</strong></p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-money-bill-wave"></i>
@@ -139,7 +139,7 @@
               <div class="small-box bg-muted">
                 <div class="inner">
                   <h3 id="kristi_bandhob">{{$bangla->bnNum(number_format($data->sum('kristi_bandhob'),2,'.',''))}}</h3>
-                  <p><strong>কৃষ্ট বান্ধব</strong></p>
+                  <p><strong>কৃষ্টি বান্ধব</strong></p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-money-bill-wave"></i>

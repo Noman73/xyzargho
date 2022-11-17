@@ -48,11 +48,11 @@
                     <th>নাম</th>
                     <th>স্বস্ত্যয়নী</th>
                     <th>ইষ্টভৃতি</th>
-                    <th>দক্ষিনা</th>
+                    <th>দক্ষিণা</th>
                     <th>সংগঠনী</th>
-                    <th>প্রনামী</th>
-                    <th>প্রচার ও প্রকাশন</th>
-                    <th>মন্দির নির্মান</th>
+                    <th>প্রণামী</th>
+                    <th>প্রচার ও প্রকাশনা</th>
+                    <th>শ্রীমন্দির নির্মান</th>
                     <th>কৃষ্টি বান্ধব</th>
                     <th>শ্রী শ্রী ঠাকুর ভোগ</th>
                     <th>আনন্দ বাজার</th>
@@ -124,7 +124,7 @@
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">দক্ষিনা:</label>
+                      <label for="message-text" class="col-form-label">দক্ষিণা:</label>
                       <input type="number" class="form-control" id="dokkhina" placeholder="0.00">
                       <div class="invalid-feedback" id="dokkhina_msg">
                       </div>
@@ -140,7 +140,7 @@
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">প্রনামী:</label>
+                      <label for="message-text" class="col-form-label">প্রণামী:</label>
                       <input type="number" class="form-control" id="pronami" placeholder="0.00">
                       <div class="invalid-feedback" id="pronami_msg">
                       </div>
@@ -148,7 +148,7 @@
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="form-group">
-                      <label for="message-text" class="col-form-label">প্রচার ও প্রকাশন:</label>
+                      <label for="message-text" class="col-form-label">প্রচার ও প্রকাশনা:</label>
                       <input type="number" class="form-control" id="advertisement" placeholder="0.00">
                       <div class="invalid-feedback" id="advertisement_msg">
                       </div>
