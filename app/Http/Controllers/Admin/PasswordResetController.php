@@ -38,16 +38,24 @@ class PasswordResetController extends Controller
             $contacts=$request->mobile;
             $type="application/json";
             $msg="আপনার অর্ঘ্য প্রস্ব্যস্তি পাসওয়ার্ড রিসেট কোড ".$bangla->bnNum($code)."।";
-            $fields='api_key='.$api_key.'&type='.$type.'&contacts='.$contacts.'&senderid='.$sender_id.'&msg='.$msg;
+            $url = "https://bulk.mimsms.com/smsapi";
+            $data = [
+                "api_key" => $api_key,
+                "type" => $type,
+                "contacts" => $contacts,
+                "senderid" => $sender_id,
+                "msg" => $msg,
+            ];
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,"https://isms.mimsms.com/smsapi");
+            curl_setopt($ch, CURLOPT_URL,$url);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$fields);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
             // In real life you should use something like:
             // curl_setopt($ch, CURLOPT_POSTFIELDS, 
             //          http_build_query(array('postvar1' => 'value1')));
             // Receive server response ...
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             $server_output = curl_exec($ch);
             curl_close ($ch);
             // Further processing ...

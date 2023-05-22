@@ -265,30 +265,34 @@ class CollectionController extends Controller
     public function sendSms($user_id,$total)
     {
         $bangla=new NumberToBangla;
-        $api_key="C2001593632a9d8ed9db24.24710771";
-        $sender_id="8809601003570";
+        $api_key="C20023746469fc9f756d23.85400962";
+        $sender_id="8809612444579";
         $donor=Donor::where('id',$user_id)->first();
         $contacts=$donor->mobile;
         $type="application/json";
         $msg="আপনার প্রদত্ত ইষ্টার্ঘ্য টাকা ".$bangla->bnNum(number_format($total,2,'.',''))." শ্রদ্ধার সাথে গৃহীত হল-পক্ষে সৎসঙ্গ ফাউন্ডেশন।";
-        $fields='api_key='.$api_key.'&type='.$type.'&contacts='.$contacts.'&senderid='.$sender_id.'&msg='.$msg;
+        
+        $url = "https://bulk.mimsms.com/smsapi";
+        $data = [
+            "api_key" => $api_key,
+            "type" => $type,
+            "contacts" => $contacts,
+            "senderid" => $sender_id,
+            "msg" => $msg,
+        ];
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://isms.mimsms.com/smsapi");
+        curl_setopt($ch, CURLOPT_URL,$url);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,$fields);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
         // In real life you should use something like:
         // curl_setopt($ch, CURLOPT_POSTFIELDS, 
         //          http_build_query(array('postvar1' => 'value1')));
         // Receive server response ...
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $server_output = curl_exec($ch);
         curl_close ($ch);
         // Further processing ...
         return $server_output;
-        // if ($server_output == "OK") { 
-
-        //  } else { 
-             
-        //  }
     }
 }
