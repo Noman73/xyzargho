@@ -33,9 +33,9 @@ class PasswordResetController extends Controller
         if($exist>0){
             $bangla=new NumberToBangla;
             $code= Otp::generate('password:'.$request->mobile);
-            $api_key="C2001593632a9d8ed9db24.24710771";
-            $sender_id="8809601000185";
-            $contacts=$request->mobile;
+            $api_key="C20023746469fc9f756d23.85400962";
+            $sender_id="8809612444579";
+            $contacts= $request->mobile;
             $type="application/json";
             $msg="আপনার অর্ঘ্য প্রস্ব্যস্তি পাসওয়ার্ড রিসেট কোড ".$bangla->bnNum($code)."।";
             $url = "https://bulk.mimsms.com/smsapi";
@@ -57,6 +57,7 @@ class PasswordResetController extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             $server_output = curl_exec($ch);
+            info($server_output);
             curl_close ($ch);
             // Further processing ...
             // return $server_output;
